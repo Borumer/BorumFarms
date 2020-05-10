@@ -1,8 +1,9 @@
 package workstation;
-import animals.Cow;
 import farmerrors.MilkOverflowError;
+import life.Person;
+import life.animals.Cow;
 
-public class Farmer {
+public class Farmer extends Person {
 	
 	public Farmer() {
 		
@@ -19,6 +20,7 @@ public class Farmer {
 	public void fetchMilk(Cow cow, Bucket bucket, double amountOfMilk) {
 		try {
 			cow.giveMilk(bucket, amountOfMilk);
+			System.out.println("Farmer milked cow. ");
 		} catch (MilkOverflowError e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
