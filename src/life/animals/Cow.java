@@ -33,7 +33,7 @@ public class Cow extends FarmAnimal implements Milkable {
 	public boolean isBranded() {
 		return branded;
 	}
-
+	
 	public void setBranded(boolean branded) {
 		this.branded = branded;
 	}

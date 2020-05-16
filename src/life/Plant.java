@@ -4,4 +4,8 @@ public class Plant extends Organism {
 	public void exhibitMetabolism() {
 		System.out.println("Doing photosynthesis..");
 	}
+	
+	public void grow() {
+		
+	}
 }

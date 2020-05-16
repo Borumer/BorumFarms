@@ -49,4 +49,8 @@ public abstract class Animal extends Organism {
 	public void exhibitMetabolism() {
 		
 	}
+	
+	public void grow() {
+		
+	}
 }
