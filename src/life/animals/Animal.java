@@ -6,11 +6,18 @@ public abstract class Animal extends Organism {
 	private String sciName;
 	private String comName;
 	
+	/**
+	 * Initializes a new Animal object with its scientific name.
+	 * Used when a common name doesn't exist
+	*/
 	public Animal(String sn) {
 		sciName = sn;
 		comName = "";
 	}
 	
+	/**
+	 * Initializes a new Animal object with its scientific and common name
+	*/
 	public Animal(String sn, String cn) {
 		sciName = sn;
 		comName = cn;
@@ -47,10 +54,10 @@ public abstract class Animal extends Organism {
 	}
 	
 	public void exhibitMetabolism() {
-		
+		System.out.println("Exhibiting metabolism...");
 	}
 	
 	public void grow() {
-		
+		System.out.println("Growing...");
 	}
 }

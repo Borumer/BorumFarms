@@ -58,8 +58,11 @@ public class FarmsSimulation extends JFrame {
 	}
 	
 	public static void main(String[] args) {
+		System.out.println("Loading farmers...");
 		Farmer joe = new Farmer();
+		System.out.println("Loading animals...");
 		Cow sally = new Cow();
+		System.out.println("Loading tools and objects...");
 		Bucket b = new Bucket();
 		joe.fetchMilk(sally, b, 6.0);
 		new FarmsSimulation();
@@ -90,7 +93,8 @@ class GriddedFrame extends JFrame {
         stuv.add(a);
         stuv.add(b);
         stuv.add(c);
-		
+        
+        
         add(s);
         add(t);
         add(a);
@@ -98,6 +102,11 @@ class GriddedFrame extends JFrame {
         add(c);
         
 		setVisible(true);
+	}
+	
+	public Insets getInsets() {
+		Insets squeeze = new Insets(50, 50, 50, 50);
+		return squeeze;
 	}
 	
 	private void setLookAndFeel() {

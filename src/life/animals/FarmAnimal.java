@@ -21,10 +21,10 @@ public abstract class FarmAnimal extends Animal {
 	}
 
 	public void showLove() {
-		
+		System.out.println("Showing love...");
 	}
 	
 	public void mourn() {
-		
+		System.out.println("Mourning...");
 	}
 }

@@ -2,7 +2,7 @@ package life.animals;
 import farmerrors.MilkOverflowError;
 import workstation.Bucket;
 
-public class Cow extends FarmAnimal implements Milkable {
+public class Cow extends FarmAnimal {
 	private String breed;
 	private boolean branded;
 	

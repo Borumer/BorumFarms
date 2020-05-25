@@ -1,9 +1,8 @@
 package workstation;
 import farmerrors.MilkOverflowError;
-import life.Person;
 import life.animals.Cow;
 
-public class Farmer extends Person {
+public class Farmer {
 	
 	public Farmer() {
 		
