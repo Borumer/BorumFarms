@@ -1,4 +1,4 @@
-package farmerrors;
+package farm;
 
 public class MilkOverflowError extends Exception {
 	private static final long serialVersionUID = -5623841819364990365L;

@@ -1,25 +1,30 @@
 package life.animals;
-import farmerrors.MilkOverflowError;
+import farm.MilkOverflowError;
 import workstation.Bucket;
 
 public class Cow extends FarmAnimal {
 	private String breed;
 	private boolean branded;
 	
+	private static int cowCount = 0;
+	
 	public Cow() {
 		super("Bos (primigenius) taurus", "Black Angus");
 		breed = "Black Angus";
+		setCowCount(getCowCount() + 1);
 	}
 	
 	public Cow(boolean b) {
 		super("Bos (primigenius) taurus", "Black Angus");
 		branded = b;
+		setCowCount(getCowCount() + 1);
 	}
 	
 	public Cow(String bre, boolean bra, String sn, String cn) {
 		super(sn, cn);
 		breed = bre;
 		branded = bra;
+		setCowCount(getCowCount() + 1);
 	}
 
 	public String getBreed() {
@@ -55,5 +60,13 @@ public class Cow extends FarmAnimal {
 	
 	public void moo() {
 		System.out.println("Moo!");
+	}
+
+	public static int getCowCount() {
+		return cowCount;
+	}
+
+	public static void setCowCount(int cowCount) {
+		Cow.cowCount = cowCount;
 	}
 }

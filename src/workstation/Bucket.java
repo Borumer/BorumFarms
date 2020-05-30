@@ -1,6 +1,6 @@
 package workstation;
 
-import farmerrors.MilkOverflowError;
+import farm.MilkOverflowError;
 
 public class Bucket {
 	/**

@@ -5,16 +5,57 @@ import workstation.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import farm.Farm;
+
 import java.nio.file.*;
 
 import life.animals.*;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.IOException;
 
 public class FarmsSimulation extends JFrame {
 	private static final long serialVersionUID = 1L;
+	
+	protected class Graph implements ActionListener, MouseListener {
+		JButton fireTorpedos = new JButton("Fire torpedos");
+
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			fireTorpedos.addActionListener(this);
+		}
+		
+	}
 	
 	public FarmsSimulation() {
 		setTitle("Farm Simulation");
@@ -35,10 +76,33 @@ public class FarmsSimulation extends JFrame {
         JLabel thankYouMessage = new JLabel("Thank you for simulating this farm!", JLabel.RIGHT);
         endOfForm.add(thankYouMessage);
         
+        JPanel pane = new JPanel();
+		BoxLayout boxes = new BoxLayout(pane, BoxLayout.Y_AXIS);
+		pane.setLayout(boxes);
+		
+        JLabel typeLabel = new JLabel("Farm Animal: ", JLabel.RIGHT);
+		JTextField farmAnType = new JTextField(20);
+        String typeChoice = farmAnType.getText();
+        farmAnType.setText("Cow");
+        System.out.println(typeChoice);
+        
+        JTextArea originalOwners = new JTextArea(4, 20);
+        
+        JTextArea comments = new JTextArea(5, 10);
+        comments.setLineWrap(true);
+        comments.setWrapStyleWord(true);
+        JScrollPane commentsScroll = new JScrollPane(comments, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		
+        pane.add(typeLabel);
+        pane.add(farmAnType);
+        pane.add(originalOwners);
+		pane.add(commentsScroll);
+        
         add(milk);
         add(newFarmer);
         add(newFarmAnimal);
         add(new JLabel());
+        add(pane);
 
         add(z);
         
@@ -62,13 +126,17 @@ public class FarmsSimulation extends JFrame {
 		Farmer joe = new Farmer();
 		System.out.println("Loading animals...");
 		Cow sally = new Cow();
+		Cow george = new Cow();
 		System.out.println("Loading tools and objects...");
 		Bucket b = new Bucket();
+		System.out.println(Cow.getCowCount());
+		Farm f = new Farm();
+		f.getCows().add(sally);
+		f.getCows().add(george);
 		joe.fetchMilk(sally, b, 6.0);
 		new FarmsSimulation();
 		new GriddedFrame();
 		new BorderedFrame();
-		new BoxedFrame();
 	}
 
 }
@@ -154,39 +222,6 @@ class BorderedFrame extends JFrame {
 		} catch (Exception e) {
 			
 		}
-	}
-}
-
-@SuppressWarnings("serial")
-class BoxedFrame extends JFrame {
-	public BoxedFrame() {
-		setTitle("Farm Boxed Layout");
-		Utility.setLookAndFeel();
-		setSize(300, 360);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		JPanel pane = new JPanel();
-		BoxLayout boxes = new BoxLayout(pane, BoxLayout.Y_AXIS);
-		pane.setLayout(boxes);
-		
-        JLabel typeLabel = new JLabel("Farm Animal: ", JLabel.RIGHT);
-		JTextField farmAnType = new JTextField(20);
-        String typeChoice = farmAnType.getText();
-        farmAnType.setText("Cow");
-        System.out.println(typeChoice);
-        
-        JTextArea originalOwners = new JTextArea(4, 20);
-        
-        JTextArea comments = new JTextArea(5, 10);
-        comments.setLineWrap(true);
-        comments.setWrapStyleWord(true);
-        JScrollPane commentsScroll = new JScrollPane(comments, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		
-        pane.add(typeLabel);
-        pane.add(farmAnType);
-        pane.add(originalOwners);
-		pane.add(commentsScroll);
-		add(pane);
-		setVisible(true);
 	}
 }
 

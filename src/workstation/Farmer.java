@@ -1,5 +1,5 @@
 package workstation;
-import farmerrors.MilkOverflowError;
+import farm.MilkOverflowError;
 import life.animals.Cow;
 
 public class Farmer {
