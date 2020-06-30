@@ -9,11 +9,11 @@ public class Farmer {
 	}
 	
 	/**
-	 * Precondition:
-	 * Postcondition: 
-	 * @param cow
-	 * @param bucket
-	 * @param amountOfMilk
+	 * Precondition: Farmer owns bucket and cow
+	 * Postcondition: Milk transferred from cow to farmer
+	 * @param cow the cow that will give the milk
+	 * @param bucket the destination container of the milk
+	 * @param amountOfMilk the volume of milk in fl. oz. 
 	 * @author Varun Singh
 	 */
 	public void fetchMilk(Cow cow, Bucket bucket, double amountOfMilk) {

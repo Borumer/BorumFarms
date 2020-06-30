@@ -14,6 +14,10 @@ import life.animals.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -22,12 +26,31 @@ import java.io.IOException;
 public class FarmsSimulation extends JFrame {
 	private static final long serialVersionUID = 1L;
 	
-	protected class Graph implements ActionListener, MouseListener {
+	protected class Graph implements ActionListener, MouseListener, KeyListener, ItemListener {
 		JButton fireTorpedos = new JButton("Fire torpedos");
-
+		JCheckBox superSize = new JCheckBox("Super Size", true);
+		JTextField frenchFries = new JTextField("Pommes Frites");
+		
+		public Graph() {
+			add(fireTorpedos);
+			add(superSize);
+			add(frenchFries);
+			fireTorpedos.addMouseListener(this);
+			superSize.addMouseListener(this);
+			frenchFries.addMouseListener(this);
+			fireTorpedos.addActionListener(this);
+			superSize.addActionListener(this);
+			frenchFries.addActionListener(this);
+			fireTorpedos.addKeyListener(this);
+			superSize.addKeyListener(this);
+			frenchFries.addKeyListener(this);
+			fireTorpedos.addItemListener(this);
+			superSize.addItemListener(this);
+//			frenchFries.addItemListener(this);
+		}
+		
 		public void mouseClicked(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
+			System.out.println("Mouse Click Count: " + e.getClickCount());
 		}
 
 		public void mousePressed(MouseEvent e) {
@@ -51,8 +74,28 @@ public class FarmsSimulation extends JFrame {
 		}
 
 		public void actionPerformed(ActionEvent e) {
+			System.out.println("Action performed");
+		}
+
+		public void keyTyped(KeyEvent e) {
 			// TODO Auto-generated method stub
-			fireTorpedos.addActionListener(this);
+			System.out.println("Key Typed");
+		}
+
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void itemStateChanged(ItemEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("Item State Changed");
 		}
 		
 	}
@@ -133,8 +176,9 @@ public class FarmsSimulation extends JFrame {
 		Farm f = new Farm();
 		f.getCows().add(sally);
 		f.getCows().add(george);
-		joe.fetchMilk(sally, b, 6.0);
-		new FarmsSimulation();
+		//joe.fetchMilk(sally, b, 6.0);
+		FarmsSimulation sim = new FarmsSimulation();
+		sim.new Graph();
 		new GriddedFrame();
 		new BorderedFrame();
 	}
